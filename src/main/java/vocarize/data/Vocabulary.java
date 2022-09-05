@@ -1,4 +1,4 @@
-package vocarize.entity;
+package vocarize.data;
 
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,8 +14,10 @@ public class Vocabulary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     String frontSide;
 
+    @Column
     String backSide;
 
     @CreationTimestamp
@@ -33,6 +35,12 @@ public class Vocabulary {
         this.backSide = backSide;
         this.creationDate = creationDate;
         this.updateDate = updateDate;
+    }
+
+    public Vocabulary(String frontSide, String backSide, Sets vocabSet) {
+        this.frontSide = frontSide;
+        this.backSide = backSide;
+        this.vocabSet = vocabSet;
     }
 
     public Vocabulary() {
@@ -76,5 +84,14 @@ public class Vocabulary {
 
     public void setUpdateDate(Timestamp updateDate) {
         this.updateDate = updateDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Vocabulary{" +
+                "frontSide='" + frontSide + '\'' +
+                ", backSide='" + backSide + '\'' +
+                ", vocabSet=" + vocabSet +
+                '}';
     }
 }

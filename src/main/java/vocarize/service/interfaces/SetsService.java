@@ -1,12 +1,19 @@
 package vocarize.service.interfaces;
 
-import vocarize.entity.Sets;
+import org.springframework.stereotype.Service;
+import vocarize.data.Sets;
+import vocarize.data.User;
 
 import java.util.List;
-
+@Service
 public interface SetsService {
-    public void AddSet(Sets sets);
-    public List<Sets> sets();
+
+    void createSet(Sets set);
+    List<Sets> findAllSets();
+    void deleteSet(Sets set);
+    Sets findSetById(Long id);
+
+
 
 
 }
