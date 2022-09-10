@@ -2,7 +2,6 @@ package vocarize.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vocarize.data.Sets;
 import vocarize.data.Vocabulary;
 import vocarize.repository.VocabularyRepository;
 import vocarize.service.interfaces.VocabularyService;
@@ -20,13 +19,20 @@ public class VocabularyServiceImpl implements VocabularyService {
     }
 
     @Override
-    public void createVocabulary(Vocabulary vocabulary) {
-
+    public String createVocabulary(Vocabulary vocabulary) {
+        vocabularyRepository.save(vocabulary);
+        if (vocabularyRepository.existsById(vocabulary.getId())) return "vocabulary is created successfully";
+        return "vocabulary couldn't  be created";
     }
 
     @Override
-    public void deleteVocabulary(Vocabulary vocabulary) {
-
+    public String deleteVocabulary(Long id) {
+        if (!vocabularyRepository.existsById(id)) {
+            throw new IllegalStateException(id + " does not exist ");
+        } else {
+            vocabularyRepository.deleteById(id);
+            return "Vocabulary " + id + " is  deleted";
+        }
     }
 
     @Override
@@ -36,7 +42,12 @@ public class VocabularyServiceImpl implements VocabularyService {
 
     @Override
     public Vocabulary findVocabularyById(Long id) {
-        return vocabularyRepository.findById(id).get();
-    }
+        if (vocabularyRepository.findById(id).isPresent()) {
+            Vocabulary vocabulary = vocabularyRepository.findById(id).get();
 
-}
+            return vocabulary;
+        }
+
+        return new Vocabulary();
+
+}}

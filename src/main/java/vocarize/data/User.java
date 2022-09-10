@@ -93,4 +93,7 @@ public class User {
         this.sets = sets;
     }
 
+    public Long getId() {
+        return id;
+    }
 }

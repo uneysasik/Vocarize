@@ -10,8 +10,8 @@ public interface UserService {
 
     List<User> findAllUsers();
     User findUserById(Long id);
-    void createUser(User user);
-    void deleteUser(User user);
+    String createUser(User user);
+    String deleteUser(Long id);
 
 
 }

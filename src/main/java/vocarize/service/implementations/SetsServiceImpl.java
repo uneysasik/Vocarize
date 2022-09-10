@@ -20,8 +20,10 @@ public class SetsServiceImpl implements SetsService{
     }
 
     @Override
-    public void createSet(Sets set) {
-
+    public String createSet(Sets set) {
+        setsRepository.save(set);
+        if (setsRepository.existsById(set.getId())) return "address is created successfully";
+        return "address couldn't  be created";
     }
 
     @Override
@@ -30,13 +32,23 @@ public class SetsServiceImpl implements SetsService{
     }
 
     @Override
-    public void deleteSet(Sets set) {
-
+    public String deleteSet(Long id) {
+        if (!setsRepository.existsById(id)) {
+            throw new IllegalStateException(id + " does not exist ");
+        } else {
+            setsRepository.deleteById(id);
+            return "Address whose id is " + id + " is successfully deleted";
+        }
     }
 
     @Override
     public Sets findSetById(Long id) {
-        return setsRepository.findById(id).get();
+        if (setsRepository.findById(id).isPresent()) {
+            Sets sets = setsRepository.findById(id).get();
+
+            return sets;
+        }
+        return new Sets();
     }
 
 }

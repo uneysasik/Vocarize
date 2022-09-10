@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public interface VocabularyService {
 
-     void createVocabulary(Vocabulary vocabulary);
-     void deleteVocabulary(Vocabulary vocabulary);
+     String createVocabulary(Vocabulary vocabulary);
+     String deleteVocabulary(Long id);
      List<Vocabulary> findAllVocabularies();
      Vocabulary findVocabularyById(Long id);
 
