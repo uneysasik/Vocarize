@@ -25,16 +25,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(Long id) {
-        return userRepository.findById(id).get();
+        if (userRepository.findById(id).isPresent()) {
+            User user = userRepository.findById(id).get();
+
+            return user;
+        }
+        return new User();
     }
 
     @Override
-    public void createUser(User user) {
-
+    public String createUser(User user) {
+        userRepository.save(user);
+        if (userRepository.existsById(user.getId())) return "user is created successfully";
+        return "user couldn't  be created";
     }
 
     @Override
-    public void deleteUser(User user) {
-
+    public String deleteUser(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new IllegalStateException(id + " does not exist ");
+        } else {
+           userRepository.deleteById(id);
+            return "Address whose id is " + id + " is successfully deleted";
+        }
     }
 }

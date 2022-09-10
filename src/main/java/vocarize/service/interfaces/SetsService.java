@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 public interface SetsService {
 
-    void createSet(Sets set);
+    String createSet(Sets set);
     List<Sets> findAllSets();
-    void deleteSet(Sets set);
+    String deleteSet(Long id);
     Sets findSetById(Long id);
 
 
