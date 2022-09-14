@@ -56,7 +56,7 @@ public class SetsController {
         }
         @PostMapping(path = "/vocuets")
         public String createSet(Vocabulary sets){
-            setsService.createSet(sets);
+            setsService.createSet();
             return "createVocabulary";
         }
 
