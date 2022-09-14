@@ -14,7 +14,9 @@ import vocarize.service.interfaces.VocabularyService;
 import java.util.List;
 
 @Controller
+@RequestMapping(method = RequestMethod.GET)
 public class SetsController {
+
     SetsServiceImpl setsService;
     VocabularyServiceImpl vocabularyService;
     UserServiceImpl userService;
@@ -31,6 +33,12 @@ public class SetsController {
             model.addAttribute("sets", setsService.findAllSets());
             return "index";
         }
+    @GetMapping(path = "/")
+         public String indexPage(Model model) {
+//        model.addAttribute(, setsService.findAllSets());
+//        model.addAttribute("vocabularies",vocabularyService.findAllVocabularies());
+        return "index";
+    }
 
         @GetMapping(path = "/findSetsById/{id}")
         public String findSetsById(@PathVariable Long id, Model model) {

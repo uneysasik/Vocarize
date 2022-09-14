@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 @Entity
 public class Vocabulary {
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -20,11 +19,11 @@ public class Vocabulary {
     @Column
     String backSide;
 
-    @CreationTimestamp
-    Timestamp creationDate;
-
-    @UpdateTimestamp
-    Timestamp updateDate;
+//    @CreationTimestamp
+//    Timestamp creationDate;
+//
+//    @UpdateTimestamp
+//    Timestamp updateDate;
 
     @ManyToOne
     Sets vocabSet;
@@ -33,8 +32,8 @@ public class Vocabulary {
         this.id = id;
         this.frontSide = frontSide;
         this.backSide = backSide;
-        this.creationDate = creationDate;
-        this.updateDate = updateDate;
+//        this.creationDate = creationDate;
+//        this.updateDate = updateDate;
     }
 
     public Vocabulary(String frontSide, String backSide, Sets vocabSet) {
@@ -70,21 +69,21 @@ public class Vocabulary {
         this.backSide = backSide;
     }
 
-    public Timestamp getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Timestamp creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Timestamp getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Timestamp updateDate) {
-        this.updateDate = updateDate;
-    }
+//    public Timestamp getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(Timestamp creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public Timestamp getUpdateDate() {
+//        return updateDate;
+//    }
+//
+//    public void setUpdateDate(Timestamp updateDate) {
+//        this.updateDate = updateDate;
+//    }
 
     @Override
     public String toString() {

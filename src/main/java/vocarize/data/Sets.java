@@ -10,18 +10,17 @@ import java.util.List;
 @Entity
 public class Sets {
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     String name;
 
-    @CreationTimestamp
-    Timestamp creationDate;
-
-    @UpdateTimestamp
-    Timestamp updateDate;
+//    @CreationTimestamp
+//    Timestamp creationDate;
+//
+//    @UpdateTimestamp
+//    Timestamp updateDate;
 
     @OneToMany
     List<Vocabulary> vocabularyList;
@@ -29,12 +28,13 @@ public class Sets {
     @ManyToOne
     User user;
 
-    public Sets(String name) {
-        this.name = name;
-    }
+
 
     public Sets() {
 
+    }
+    public Sets(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -45,21 +45,21 @@ public class Sets {
         this.name = name;
     }
 
-    public Timestamp getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Timestamp creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Timestamp getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Timestamp updateDate) {
-        this.updateDate = updateDate;
-    }
+//    public Timestamp getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(Timestamp creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public Timestamp getUpdateDate() {
+//        return updateDate;
+//    }
+//
+//    public void setUpdateDate(Timestamp updateDate) {
+//        this.updateDate = updateDate;
+//    }
 
     public List<Vocabulary> getVocabularyList() {
         return vocabularyList;
