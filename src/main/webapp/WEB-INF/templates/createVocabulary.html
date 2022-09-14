@@ -1,4 +1,4 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 
 
@@ -19,8 +19,8 @@
         <td valign="top" colspan="4" height="64">
             <!-- MSCellType="ContentBody" -->
             <blockquote>
-                <p align="center"><a href="index.htm">
-                    <img border="0" src="vocarize-logo.png" width="129" height="121" align="left"></a></p>
+                <p align="center"><a href="/">
+                    <img border="0" src="../img/vocarize-logo.png" width="129" height="121" align="left"></a></p>
                 <p align="center">&nbsp;</p>
                 <p align="center">&nbsp;</p>
                 <p>&nbsp;</p>
@@ -41,11 +41,11 @@
     <tr>
         <td valign="middle" colspan="4" height="40">
             <!-- MSCellType="ContentBody" -->
-            <form method="POST" action="--WEBBOT-SELF--">
+            <form th:action="@{/vocuets}" method="POST" action="--WEBBOT-SELF--">
                 <!--webbot bot="SaveResults" U-File="C:\Users\Uneys\Desktop\Vocarize-Frontpage\_private\form_results.csv" S-Format="TEXT/CSV" S-Label-Fields="TRUE" -->
                 <p align="center">
                     <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
-                    <input type="text" name="T1" size="50" value="Enter a Title"><input type="submit" value="Create" name="B1" style="float: right"></p>
+                    <input type="text" name="sets.name" size="50" value="Enter a Title"><input type="submit" value="Create" name="B1" style="float: right"></p>
             </form>
         </td>
     </tr>
@@ -57,7 +57,8 @@
         <td valign="top" width="535">
             <!-- MSCellType="ContentBody" -->
             <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
-            <input name="T2" size="50" value="Type your word" style="float: right"><p>&nbsp;</p>
+            <input name="vocabulary.frontSide
+ " size="50" value="Type your word" style="float: right"><p>&nbsp;</p>
             <p>
                 <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
                 <input name="T4" size="50" value="Type your word" style="float: right"></p>
@@ -128,7 +129,7 @@
             <p>&nbsp;</p>
             <p>
                 <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
-                <input name="T21" size="50" value="Type your word" style="float: right"></p>
+                <input name="" size="50" value="Type your word" style="float: right"></p>
             <p>&nbsp;</p>
             <p>
                 <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
@@ -144,7 +145,7 @@
             <!-- MSCellType="ContentBody" -->
             <p align="left">
                 <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
-                <input name="T3" size="50" value="Type the definition" style="float: left"></p>
+                <input name="vocabulary.backSide" size="50" value="Type the definition" style="float: left"></p>
             <p align="left">&nbsp;</p>
             <p align="left">
                 <!--webbot bot="Validation" S-Display-Name="Enter a title" S-Data-Type="String" B-Allow-Letters="TRUE" B-Allow-Digits="TRUE" B-Allow-WhiteSpace="TRUE" -->
