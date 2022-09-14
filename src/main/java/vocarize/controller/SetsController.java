@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vocarize.data.Sets;
 import vocarize.data.User;
+import vocarize.data.Vocabulary;
 import vocarize.service.implementations.SetsServiceImpl;
 import vocarize.service.implementations.UserServiceImpl;
 import vocarize.service.implementations.VocabularyServiceImpl;
@@ -28,17 +29,19 @@ public class SetsController {
         this.userService = userService;
     }
 
+    @GetMapping(path = "")
+    public String indexPage(Model model) {
+        return "index";
+    }
+
+
+
         @GetMapping(path = "/findSets")
         public String findAllSets(Model model) {
             model.addAttribute("sets", setsService.findAllSets());
-            return "index";
+            return "createVocabulary";
         }
-    @GetMapping(path = "/")
-         public String indexPage(Model model) {
-//        model.addAttribute(, setsService.findAllSets());
-//        model.addAttribute("vocabularies",vocabularyService.findAllVocabularies());
-        return "index";
-    }
+
 
         @GetMapping(path = "/findSetsById/{id}")
         public String findSetsById(@PathVariable Long id, Model model) {
@@ -51,10 +54,10 @@ public class SetsController {
             model.addAttribute("deleteSet", setsService.deleteSet(id));
             return "index";
         }
-        @PostMapping(path = "/createSet")
-        public String createSet(Sets sets){
+        @PostMapping(path = "/vocuets")
+        public String createSet(Vocabulary sets){
             setsService.createSet(sets);
-            return "index";
+            return "createVocabulary";
         }
 
 
